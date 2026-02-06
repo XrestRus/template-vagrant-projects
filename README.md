@@ -120,21 +120,6 @@ $Env:VAGRANT_PREFER_SYSTEM_BIN = 0
 vagrant ssh
 ```
 
-## 🌐 Частный Vagrant Cloud
-
-Все боксы загружаются с частного сервера `vagrant.elab.pro`. Конфигурация автоматически настроена в каждом `Vagrantfile`:
-
-```ruby
-ENV['VAGRANT_SERVER_URL'] = 'http://vagrant.elab.pro'
-config.vm.box_url = "http://vagrant.elab.pro/api/v2/vagrant/bento/ubuntu-24.04"
-```
-
-**Доступные боксы:**
-- `bento/ubuntu-24.04` - Ubuntu 24.04 LTS (project-vb-docker)
-- `bento/ubuntu-22.04` - Ubuntu 22.04 LTS (project-vb-lxc)
-
-**Провайдеры:** VirtualBox, libvirt
-
 ## 🔌 Дополнительные возможности
 
 ### Автоматическая установка проекта
