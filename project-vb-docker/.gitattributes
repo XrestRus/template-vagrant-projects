@@ -1,0 +1,9 @@
+# Автоматическая нормализация окончаний строк
+* text=auto
+
+# Bash скрипты всегда должны иметь LF (Unix) окончания строк
+*.sh text eol=lf
+
+# Env файлы тоже с LF
+.env text eol=lf
+.env.* text eol=lf
