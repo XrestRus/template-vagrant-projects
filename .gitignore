@@ -1,3 +1,21 @@
-**/.vagrant
+# Vagrant
+**/.vagrant/
+*.box
+*.log
+
+# Env файлы (содержат секреты)
 **/.env
-/projects
+!**/.env.example
+
+# Временные файлы
+*.tmp
+*.bak
+*~
+
+# OS специфичные
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Проекты (склонированные внутри VM)
+/projects/
