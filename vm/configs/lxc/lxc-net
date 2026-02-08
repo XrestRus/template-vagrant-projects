@@ -1,0 +1,29 @@
+# Конфигурация LXC сети с встроенным dnsmasq
+# Этот файл автоматически применяется через симлинк
+
+# Включаем LXC bridge
+USE_LXC_BRIDGE="true"
+
+# Имя bridge интерфейса
+LXC_BRIDGE="lxcbr0"
+
+# IP адрес gateway
+LXC_ADDR="10.0.3.1"
+
+# Маска подсети
+LXC_NETMASK="255.255.255.0"
+
+# Сеть
+LXC_NETWORK="10.0.3.0/24"
+
+# DHCP диапазон для контейнеров
+LXC_DHCP_RANGE="10.0.3.2,10.0.3.254"
+
+# Максимальное количество DHCP адресов
+LXC_DHCP_MAX="253"
+
+# Конфиг dnsmasq (папка с кастомными доменами)
+LXC_DHCP_CONFILE="/etc/lxc/dnsmasq.d"
+
+# DNS домен для контейнеров (контейнеры будут доступны как *.lxc)
+LXC_DOMAIN="lxc"

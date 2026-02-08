@@ -1,0 +1,21 @@
+# Кастомная конфигурация SSH сервера
+# Этот файл автоматически применяется через симлинк
+
+# Разрешаем TCP forwarding для SOCKS5 прокси и проброса портов
+AllowTcpForwarding yes
+
+# Разрешаем туннелирование
+PermitTunnel yes
+
+# Разрешаем вход по SSH ключам
+PubkeyAuthentication yes
+
+# Разрешаем вход по паролю (для удобства разработки)
+PasswordAuthentication yes
+
+# Разрешаем X11 forwarding (если нужен GUI)
+X11Forwarding yes
+
+# Keep-alive для долгих SSH сессий
+ClientAliveInterval 60
+ClientAliveCountMax 3

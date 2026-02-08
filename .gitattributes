@@ -1,21 +1,32 @@
 # Автоматическая нормализация окончаний строк для всех файлов
 * text=auto
 
-# Bash/Shell скрипты всегда должны иметь LF (Unix) окончания строк
-*.sh text eol=lf
-
-# Env файлы с LF
-.env text eol=lf
-.env.* text eol=lf
-
-# Windows скрипты с CRLF
+# Windows скрипты с CRLF (только для запуска на хосте)
 *.ps1 text eol=crlf
 *.bat text eol=crlf
 *.cmd text eol=crlf
 
-# Документация с LF
+# Всё остальное с LF (для работы в Ubuntu VM)
+
+# Bash/Shell скрипты
+*.sh text eol=lf
+
+# Env файлы
+.env text eol=lf
+.env.* text eol=lf
+
+# Документация
 *.md text eol=lf
 
-# Vagrantfile - Ruby файлы с LF
+# Vagrantfile - Ruby файлы
 Vagrantfile text eol=lf
 *.rb text eol=lf
+
+# Конфигурационные файлы
+*.conf text eol=lf
+*.json text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+
+# Папка vm/ с файлами для Ubuntu VM - всё с LF
+vm/** text eol=lf
