@@ -5,8 +5,9 @@
 ## Навигация по документации
 
 - **[Главная документация](../README.md)** — основная документация проекта
-- **[Конфигурации](configs/README.md)** — подробнее про конфигурации LXC и SSH
+- **[Конфигурации](configs/README.md)** — подробнее про конфигурации LXC, SSH и systemd
 - **[DNS домены](configs/lxc/dnsmasq.d/README.md)** — документация по dnsmasq и кастомным доменам
+- **[systemd-resolved](configs/systemd/README.md)** — DNS резолвинг для LXC доменов на хосте
 
 ## Содержимое
 
@@ -69,7 +70,7 @@
 vagrant ssh -c "sudo systemctl restart lxc-net"
 
 # SSH
-vagrant ssh -c "sudo systemctl restart sshd"
+vagrant ssh -c "sudo systemctl restart ssh"
 ```
 
 ## Редактирование

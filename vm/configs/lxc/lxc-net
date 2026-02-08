@@ -22,8 +22,8 @@ LXC_DHCP_RANGE="10.0.3.2,10.0.3.254"
 # Максимальное количество DHCP адресов
 LXC_DHCP_MAX="253"
 
-# Конфиг dnsmasq (папка с кастомными доменами)
-LXC_DHCP_CONFILE="/etc/lxc/dnsmasq.d"
+# Конфиг dnsmasq (главный файл который подключает dnsmasq.d/)
+LXC_DHCP_CONFILE="/etc/lxc/dnsmasq.conf"
 
 # DNS домен для контейнеров (контейнеры будут доступны как *.lxc)
 LXC_DOMAIN="lxc"

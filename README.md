@@ -49,6 +49,12 @@ SSH_PASSWORD="password"
 
 ### 3. Запуск окружения
 
+#### Вариант 1: Удаление и заного полная установка
+```powershell
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass ; ./rebuild.ps1
+```
+
+#### Вариант 2: Полная установка
 ```powershell
 Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass ; ./run.ps1
 ```

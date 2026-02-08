@@ -1,0 +1,10 @@
+# Upstream DNS серверы для dnsmasq
+# Используются для резолвинга внешних доменов
+
+# Yandex DNS
+nameserver 77.88.8.8
+nameserver 77.88.8.1
+
+# Google DNS (запасные)
+nameserver 8.8.8.8
+nameserver 8.8.4.4

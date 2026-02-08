@@ -12,3 +12,5 @@ $Env:VAGRANT_PREFER_SYSTEM_BIN = 0
 
 # Запуск VM с VirtualBox провайдером
 vagrant up --provider=virtualbox
+
+vagrant ssh -c "bash /vagrant/vm/scripts/bootstrap.sh"

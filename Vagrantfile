@@ -13,7 +13,6 @@ Vagrant.configure("2") do |config|
   config.vm.provider "virtualbox" do |vb|
     vb.memory = "16384"
     vb.cpus = "4"
-    vb.name = "vagrant-devbox"
   end
 
   # Отключаем дефолтную shared folder
@@ -21,8 +20,7 @@ Vagrant.configure("2") do |config|
   # Монтируем всю папку vm/ (скрипты, конфиги, env)
   config.vm.synced_folder "vm/", "/vagrant/vm", type: "virtualbox"
   
-  # Запуск установки
+  # Минимальная подготовка VM (без автоматической установки пакетов)
   config.vm.provision "shell", inline: <<-SHELL
-    bash /vagrant/vm/scripts/bootstrap.sh
   SHELL
 end

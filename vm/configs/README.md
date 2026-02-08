@@ -102,7 +102,23 @@ ClientAliveCountMax 3
 notepad vm\configs\ssh\sshd_config
 
 # Перезапусти SSH
-vagrant ssh -c "sudo systemctl restart sshd"
+vagrant ssh -c "sudo systemctl restart ssh"
+```
+
+### systemd-resolved конфигурация
+
+**`vm/configs/systemd/resolved.conf`** — настройка DNS резолвинга (готов к использованию):
+
+```bash
+DNS=10.0.3.1                    # LXC dnsmasq
+FallbackDNS=8.8.8.8 8.8.4.4     # Google DNS как запасной
+```
+
+## 🔄 После изменений конфигураций
+
+```bash
+# Применить все конфиги заново
+vagrant ssh -c "bash /vagrant/vm/scripts/apply-configs.sh"
 ```
 
 ### Как узнать IP контейнера

@@ -23,6 +23,16 @@ sudo rm -f /etc/default/lxc-net
 sudo ln -sf /vagrant/vm/configs/lxc/lxc-net /etc/default/lxc-net
 echo "  ✅ Симлинк: lxc-net"
 
+# dnsmasq main config
+sudo rm -f /etc/lxc/dnsmasq.conf
+sudo ln -sf /vagrant/vm/configs/lxc/dnsmasq.conf /etc/lxc/dnsmasq.conf
+echo "  ✅ Симлинк: dnsmasq.conf"
+
+# dnsmasq resolv file (upstream DNS)
+sudo rm -f /etc/lxc/resolv.dnsmasq
+sudo ln -sf /vagrant/vm/configs/lxc/resolv.dnsmasq /etc/lxc/resolv.dnsmasq
+echo "  ✅ Симлинк: resolv.dnsmasq"
+
 # dnsmasq.d конфиги
 sudo mkdir -p /etc/lxc/dnsmasq.d
 for conf_file in /vagrant/vm/configs/lxc/dnsmasq.d/*.conf; do
@@ -38,6 +48,20 @@ sudo systemctl restart lxc-net
 echo "  ✅ LXC сеть перезапущена"
 
 # ============================================
+# systemd-resolved конфигурация (для резолвинга LXC DNS)
+# ============================================
+echo ""
+echo "🌐 Применяем systemd-resolved конфигурацию..."
+
+sudo rm -f /etc/systemd/resolved.conf
+sudo ln -sf /vagrant/vm/configs/systemd/resolved.conf /etc/systemd/resolved.conf
+echo "  ✅ Симлинк: resolved.conf"
+
+# Перезапуск systemd-resolved
+sudo systemctl restart systemd-resolved
+echo "  ✅ systemd-resolved перезапущен"
+
+# ============================================
 # SSH конфигурация
 # ============================================
 echo ""
@@ -48,7 +72,7 @@ sudo ln -sf /vagrant/vm/configs/ssh/sshd_config /etc/ssh/sshd_config.d/99-custom
 echo "  ✅ Симлинк: sshd_config"
 
 # Перезапуск SSH
-sudo systemctl restart sshd
+sudo systemctl restart ssh
 echo "  ✅ SSH сервер перезапущен"
 
 # ============================================
@@ -58,5 +82,6 @@ echo ""
 echo "✅ Все конфигурации применены через симлинки"
 echo ""
 echo "📝 Редактируй конфиги в vm/configs/ и перезапускай сервисы:"
-echo "   LXC: sudo systemctl restart lxc-net"
-echo "   SSH: sudo systemctl restart sshd"
+echo "   LXC:      sudo systemctl restart lxc-net"
+echo "   DNS:      sudo systemctl restart systemd-resolved"
+echo "   SSH:      sudo systemctl restart ssh"

@@ -9,6 +9,20 @@ echo "=================================================="
 echo "🚀 Начинаем установку окружения разработки"
 echo "=================================================="
 
+# Подготовка: конвертация файлов Windows -> Unix
+echo ""
+echo "🔧 Подготовка файлов (конвертация CRLF -> LF)..."
+sudo apt-get update -qq
+sudo apt-get install -y dos2unix
+
+# Конвертируем все скрипты и env файлы
+find /vagrant/vm -type f -name "*.sh" -exec dos2unix {} \; 2>/dev/null || true
+if [ -f /vagrant/vm/env ]; then
+  dos2unix /vagrant/vm/env 2>/dev/null || true
+fi
+
+echo "✅ Файлы подготовлены"
+
 # Загружаем переменные из vm/env
 set -a
 source /vagrant/vm/env
@@ -82,9 +96,6 @@ echo ""
 echo "🔗 Подключение:"
 echo "  • SSH: vagrant ssh"
 echo "  • SOCKS5 прокси: vagrant ssh -- -D7777"
-if [[ -n "${PRIVATE_IP}" ]]; then
-echo "  • Прямой SSH: ssh vagrant@${PRIVATE_IP} (пароль: vagrant)"
-fi
 echo ""
 echo "📂 Проекты находятся в: /home/vagrant/projects/"
 echo ""
