@@ -59,6 +59,21 @@ Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass ; ./rebuild.ps1
 Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass ; ./run.ps1
 ```
 
+### 4. Упаковка образа
+- https://developer.hashicorp.com/vagrant/docs/cli/package
+
+```bash
+# 1. Убедись что VM запущена и всё установлено
+vagrant status
+# 2. Упакуй текущее состояние VM в box
+vagrant package --output ubuntu24-devbox-ready-$version.box
+# 3. Добавь этот box в Vagrant
+vagrant box add devbox-ready-$version ubuntu24-devbox-ready-$version.box
+# 4. Теперь можешь использовать в новом проекте
+# В Vagrantfile:
+# config.vm.box = "devbox-ready"
+```
+
 ## 🔧 Управление VM
 
 ```powershell
