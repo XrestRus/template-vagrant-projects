@@ -1,9 +1,13 @@
+
 # Universal Vagrant Box
+
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/XrestRus/template-vagrant-projects)
 
 Универсальная Vagrant-конфигурация для быстрого развёртывания полноценного окружения разработки на базе VirtualBox + Ubuntu 24.04 LTS.
 
 ## Навигация по документации
 
+- **[deepwiki](https://deepwiki.com/XrestRus/template-vagrant-projects)** - документация в deepwiki
 - **[VM Directory](vm/README.md)** — документация папки vm/ (скрипты, конфиги, env)
 - **[Конфигурации](vm/configs/README.md)** — подробнее про конфигурации LXC и SSH
 - **[DNS домены](vm/configs/lxc/dnsmasq.d/README.md)** — документация по dnsmasq и кастомным доменам
