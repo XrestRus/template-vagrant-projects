@@ -8,7 +8,7 @@ set -e
 echo "Установка LXC..."
 
 # Установка LXC и дополнительных пакетов
-sudo apt install -y \
+sudo DEBIAN_FRONTEND=noninteractive apt install -y \
     lxc \
     lxc-templates \
     uidmap \

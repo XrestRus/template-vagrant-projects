@@ -30,12 +30,16 @@ sudo systemctl restart systemd-resolved
 
 ```bash
 # Проверить статус systemd-resolved
-systemd-resolve --status
+resolvectl status
 
-# Должен показать:
-# DNS Servers: 10.0.3.1
-#              8.8.8.8
-#              8.8.4.4
+# Должен показать примерно:
+# Global
+#            Protocols: -LLMNR -mDNS -DNSOverTLS DNSSEC=no/unsupported
+#     resolv.conf mode: stub
+#   Current DNS Server: 10.0.3.1
+#          DNS Servers: 10.0.3.1
+# Fallback DNS Servers: 8.8.8.8 8.8.4.4
+#           DNS Domain: local lxc test
 
 # Проверить резолвинг
 ping -c 2 mycontainer.lxc

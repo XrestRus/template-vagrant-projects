@@ -31,10 +31,10 @@
 
 ## Быстрый старт
 
-### 1. Создание `.env` файла
+### 1. Создание `vm/env` файла
 
 ```powershell
-Copy-Item .env.example .env
+Copy-Item ./vm/env.example ./vm/env
 ```
 
 ### 2. Настройка конфигов
@@ -81,8 +81,15 @@ vagrant box add devbox-ready-$version ubuntu24-devbox-ready-$version.box
 ## 🔧 Управление VM
 
 ```powershell
+# Узнать ip адрес
+vagrant ssh -c "hostname -I | cut -d' ' -f2"
+
 # Подключиться к VM
 vagrant ssh
+
+# Подключиться по ssh
+ssh vagrant@ip
+- Пароль - `vagrant`
 
 # SOCKS5 прокси (для доступа к контейнерам из браузера)
 vagrant ssh -- -D7777
@@ -101,6 +108,9 @@ vagrant destroy -f
 
 # Статус VM
 vagrant status
+
+# Настройки ssh vagrant
+vagrant ssh-config
 ```
 
 ## Docker

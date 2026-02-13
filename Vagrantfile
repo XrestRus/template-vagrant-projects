@@ -8,6 +8,7 @@ Vagrant.configure("2") do |config|
   # Базовые настройки VM
   config.vm.box = "bento/ubuntu-24.04"
   config.vm.hostname = "vagrant-devbox"
+  config.vm.network "public_network", use_dhcp_assigned_default_route: true
   
   # Настройки ресурсов VirtualBox
   config.vm.provider "virtualbox" do |vb|

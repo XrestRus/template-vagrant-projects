@@ -7,7 +7,7 @@ set -e
 echo "Установка SSHFS..."
 
 # Установка пакета
-sudo apt install -y sshfs
+sudo DEBIAN_FRONTEND=noninteractive apt install -y sshfs
 
 # Проверяем наличие SSHFS_URL
 if [[ -z "${SSHFS_URL}" ]]; then

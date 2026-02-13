@@ -7,7 +7,7 @@ set -e
 
 echo "Установка базовых пакетов..."
 
-sudo apt install -y \
+sudo DEBIAN_FRONTEND=noninteractive apt install -y \
     openssh-server \
     git \
     mc \
